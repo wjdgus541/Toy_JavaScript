@@ -1,15 +1,35 @@
 const toDoForm = document.querySelector(".js-toDoForm"),
-    toDOInput = toDoForm.querySelector("input"),
+    toDoInput = toDoForm.querySelector("input"),
     toDoList = document.querySelector(".js-toDoList");
 
 const TODOS_LS = 'toDos';
 
-function paintToDo(text){
+const toDos = [];
 
+function saveToDos(){
+    localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+}
+
+function paintToDo(text){
+    const li = document.createElement("li");
+    const delBtn = document.createElement("button");
+    const span = document.createElement("span");
+    const newId = toDos.length +1;
+    delBtn.innerText = "X";
+    span.innerText = text;
+    li.appendChild(span);
+    li.appendChild(delBtn);
+    toDoList.appendChild(li);
+    const toDoObj = {
+        text: text,
+        id: newId
+    };
+    toDos.push(toDoObj);
+    saveToDos();
 }
 
 function handleSubmit(event){
-    event.preventDefault();
+    event.preventDefault(); //sumbit의 페이지 새로고침 이벤트 중단
     const currentValue = toDoInput.value;
     paintToDo(currentValue);
     toDoInput.value = "";
@@ -24,7 +44,7 @@ function loadToDos(){
 
 function init(){
     loadToDos();
-    toDoFOrm.addEventListener("submit", handleSubmit);
+    toDoForm.addEventListener("submit", handleSubmit);
 }
 
 init();
