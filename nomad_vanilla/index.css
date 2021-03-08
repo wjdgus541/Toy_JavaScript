@@ -7,6 +7,12 @@ body {
     display:none;
 }
 
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .showing {
     display: block;
 }
@@ -27,4 +33,21 @@ body {
     height:100%;
     z-index: -1;
     animation: fadeIn 3s linear;
+}
+
+.toDoForm__input {
+    border: none;
+    border-bottom:2px solid white;
+    background-color:unset;
+}
+
+.toDoForm__input:focus {
+    outline: none;
+    color:white;
+    
+}
+
+.toDoList {
+    list-style-type: none;
+    padding-inline-start: 0;
 }
