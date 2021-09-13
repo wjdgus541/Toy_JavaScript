@@ -1,0 +1,22 @@
+body {
+    margin:0;
+    height: 90vh;
+    background-color: #FFDEDE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.borderBox {
+    width :300px;
+    height: 80vh;
+    background-color: #FDF5CA;
+    border:9px solid #F2BB7B;
+}
+#leftBox {
+    margin-right: 2px;
+}
+.miniBox {
+    width:300px;
+    height:100px;
+    background-color: #FFDFAF;
+}
