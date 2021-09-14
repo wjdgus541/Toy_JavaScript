@@ -35,6 +35,8 @@ document.addEventListener('mouseup', e => {
     console.log(leftSpace, rightSpace, e.clientX);
     if (leftSpace < rightSpace) {
         miniBox.style.transform = `translateY(${offset.y}px)`;
+        leftBox.appendChild(miniBox);
+
     }else {
         miniBox.style.transform = `translateY(${offset.y}px)`;
         rightBox.appendChild(miniBox);
